@@ -1,0 +1,17 @@
+@import "../base.scss";
+
+.btn-brown {
+  background-color: $brown !important;
+  border-color: $brown !important;
+
+  &:hover {
+    background-color: $dark-brown !important;
+    color: $white !important;
+  }
+
+  &:disabled {
+    background-color: $brown !important;
+    border-color: $brown !important;
+    color: $black !important;
+  }
+}

@@ -1,0 +1,18 @@
+@import "../base.scss";
+
+#header {
+  background-color: $purple;
+  border-bottom: 5px solid $brown;
+}
+
+@media (min-width: 992px) {
+  #navbarSupportedContent {
+    display: none !important;
+  }
+}
+
+@media (max-width: 992px) {
+  a {
+    color: $yellow !important;
+  }
+}
