@@ -24,7 +24,7 @@ function TransactionPage() {
       if (message) {
         dispatch(resetMessage(""));
       }
-    }, 5000);
+    }, 7000);
     return () => {
       setMessage("");
     };
@@ -32,7 +32,10 @@ function TransactionPage() {
 
   useEffect(() => {
     if (isEmpty(transactions)) dispatch(fetchTransactions(1));
-  });
+    if (message === "Transaction was updated successfully.") {
+      dispatch(fetchTransactions(transactions.meta.current_page));
+    }
+  }, [dispatch, transactions, message]);
 
   const showModal = () => {
     setShowModal(true);

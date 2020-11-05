@@ -51,6 +51,8 @@ function DataSection() {
   const annualIncDecData = composeAnnualIncDecData(SpanRecords, Span);
   const aveContribution = composeAveContribution(SpanRecords, Span);
 
+  console.log(">>>>>>>>>>>>>>>>>>>>", annualIncDecData);
+
   return (
     <Fragment>
       <div className="row mb-3">
@@ -76,6 +78,7 @@ function DataSection() {
                   itemWidth={100}
                   enableLabel={true}
                   labelTextColor="#ffffff"
+                  colorScheme="purpleRed_green"
                 />
               </div>
             </div>
@@ -107,6 +110,7 @@ function DataSection() {
                   itemWidth={100}
                   enableLabel={true}
                   labelTextColor="#ffffff"
+                  colorScheme="purpleRed_green"
                 />
               </div>
             </div>
@@ -155,6 +159,7 @@ function DataSection() {
                   itemWidth={80}
                   enableLabel={true}
                   labelTextColor="#ffffff"
+                  colorScheme="category10"
                 />
               </div>
             </div>

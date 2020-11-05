@@ -100,12 +100,12 @@ const composeAnnualIncDecData = (records, span) => {
       prev = 0;
       coordinates.push(prev, prev, contribution, contribution);
       data.push(coordinates);
+      prev = contribution;
     } else {
-      const incOrDec = contribution - prev;
-      coordinates.push(prev, prev, incOrDec, incOrDec);
+      coordinates.push(prev, prev, contribution, contribution);
+      prev = contribution;
       data.push(coordinates);
     }
-    prev = contribution;
   }
   return data;
 };

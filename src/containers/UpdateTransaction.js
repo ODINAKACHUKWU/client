@@ -16,31 +16,49 @@ function UpdateTransaction(props) {
   const [ContributionDate, setContributionDate] = useState("");
   const [Amount, setAmount] = useState("");
   const [Memo, setMemo] = useState("");
-  const { error, transactions, transaction } = useSelector(
+  const [Transaction, setTransaction] = useState({});
+  const { error, transactions, transaction, message } = useSelector(
     (state) => state.transaction
   );
   const [Errors, setErrors] = useState({});
 
-  useEffect(() => {
-    if (transaction.id !== props.data.id) {
-      dispatch(fetchTransaction(props.data.id));
-    }
-  }, [dispatch, props.data.id, transaction]);
+  // useEffect(() => {
+  //   if (transaction.id !== props.data.id) {
+  //     dispatch(fetchTransaction(props.data.id));
+  //   }
+  // }, [dispatch, props.data.id, transaction]);
+
+  // useEffect(() => {
+  //   if (!isEmpty(transaction)) {
+  //     setPayee(transaction.payee_name);
+  //     setContributionDate(transaction.contribution_date);
+  //     setAmount(transaction.amount);
+  //     setMemo(transaction.memo);
+  //   }
+  //   return () => {
+  //     setPayee("");
+  //     setContributionDate("");
+  //     setAmount("");
+  //     setMemo("");
+  //   };
+  // }, [transaction]);
 
   useEffect(() => {
-    if (!isEmpty(transaction)) {
-      setPayee(transaction.payee_name);
-      setContributionDate(transaction.contribution_date);
-      setAmount(transaction.amount);
-      setMemo(transaction.memo);
-    }
-    return () => {
-      setPayee("");
-      setContributionDate("");
-      setAmount("");
-      setMemo("");
-    };
-  }, [transaction]);
+    console.log(">>>>>>>>>>>>>>>>>", props.data);
+
+    // return () => {
+    //   setPayee("");
+    //   setContributionDate("");
+    //   setAmount("");
+    //   setMemo("");
+    // };
+    if (message === "Transaction was updated successfully.")
+      return props.handleClose();
+    setPayee(props.data.payee_name);
+    setContributionDate(props.data.contribution_date);
+    setAmount(props.data.amount);
+    setMemo(props.data.memo);
+  }, [props, message]);
 
   const isValid = (data) => {
     const { errors, isValid } = updateTransactionValidator(data);
@@ -60,10 +78,12 @@ function UpdateTransaction(props) {
       memo: Memo,
     };
 
+    console.log("=============", data);
+
     if (isValid(data)) {
       dispatch(updateTransaction(props.data.id, data)).then(() => {
-        dispatch(fetchTransactions(transactions.meta.current_page));
-        props.handleClose();
+        // dispatch(fetchTransactions(transactions.meta.current_page));
+        // props.handleClose();
       });
     }
   };

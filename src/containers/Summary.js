@@ -38,7 +38,7 @@ function Summary() {
   }, [summary]);
 
   const setIcon = (prev, current) => {
-    const icon = prev > current ? arrowDown : arrowUp;
+    const icon = parseFloat(prev) > parseFloat(current) ? arrowDown : arrowUp;
     return icon;
   };
 
@@ -156,7 +156,7 @@ function Summary() {
               <p>
                 {TotalTransactions &&
                   `${TotalTransactions} Contribution${
-                    TotalTransactions > 1 ? "s" : ""
+                    parseInt(TotalTransactions) > 1 ? "s" : ""
                   }`}
               </p>
             </div>

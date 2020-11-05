@@ -13,7 +13,7 @@ function ColumnChart(props) {
       padding={0.3}
       maxValue="auto"
       groupMode={props.groupMode}
-      colors={{ scheme: "purpleRed_green" }}
+      colors={{ scheme: props.colorScheme }}
       defs={[
         {
           id: "dots",

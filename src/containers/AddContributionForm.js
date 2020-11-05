@@ -32,7 +32,7 @@ function AddContributionForm(props) {
       setAmount("");
       setMemo("");
     };
-  }, [transaction, props, dispatch, transactions.meta.current_page]);
+  }, [transaction, props, dispatch, transactions]);
 
   const isValid = (data) => {
     const { errors, isValid } = transactionValidator(data);
