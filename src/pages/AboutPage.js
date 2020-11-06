@@ -1,5 +1,6 @@
 import React, { Fragment, useEffect } from "react";
 import Layout from "../containers/Layout";
+import pdf from "../assets/images/Odinakachukwu Ezeobika Resume.pdf";
 
 import "../assets/stylesheets/pages/about-page.scss";
 
@@ -55,7 +56,11 @@ function AboutPage() {
           </p>
           <h5>Connect with me:</h5>
           <p>
-            <a href="https://facebook.com/ezeobika.o.solomon" target="_blank">
+            <a
+              href="https://facebook.com/ezeobika.o.solomon"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <img
                 src={facebook}
                 className="rounded-circle mr-2"
@@ -63,7 +68,11 @@ function AboutPage() {
                 alt="Facebook"
               />
             </a>
-            <a href="https://instagram.com/debig_solo" target="_blank">
+            <a
+              href="https://instagram.com/debig_solo"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <img
                 src={instagram}
                 className="rounded-circle mr-2"
@@ -71,7 +80,11 @@ function AboutPage() {
                 alt="Instagram"
               />
             </a>
-            <a href="https://twitter.com/busy_dev" target="_blank">
+            <a
+              href="https://twitter.com/busy_dev"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <img
                 src={twitter}
                 className="rounded-circle mr-2"
@@ -82,6 +95,7 @@ function AboutPage() {
             <a
               href="https://linkedin.com/in/odinakachukwu-ezeobika-5892778a"
               target="_blank"
+              rel="noopener noreferrer"
             >
               <img
                 src={linkedin}
@@ -90,13 +104,22 @@ function AboutPage() {
                 alt="LinkedIn"
               />
             </a>
-            <a href="https://github.com/ODINAKACHUKWU" target="_blank">
+            <a
+              href="https://github.com/ODINAKACHUKWU"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <img
                 src={github}
                 className="rounded-circle"
                 height="30"
                 alt="Github"
               />
+            </a>
+          </p>
+          <p>
+            <a href={pdf} target="_blank" rel="noopener noreferrer">
+              View my resume
             </a>
           </p>
         </div>
