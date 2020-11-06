@@ -51,8 +51,6 @@ function DataSection() {
   const annualIncDecData = composeAnnualIncDecData(SpanRecords, Span);
   const aveContribution = composeAveContribution(SpanRecords, Span);
 
-  console.log(">>>>>>>>>>>>>>>>>>>>", annualIncDecData);
-
   return (
     <Fragment>
       <div className="row mb-3">

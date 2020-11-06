@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import isEmpty from "is-empty";
 import { transactionValidator } from "../helpers/validator";
 import {
   recordTransaction,
@@ -16,23 +15,8 @@ function AddContributionForm(props) {
   const [Amount, setAmount] = useState("");
   const [Memo, setMemo] = useState("");
   const [Errors, setErrors] = useState({});
-  const { error, transaction, transactions } = useSelector(
-    (state) => state.transaction
-  );
+  const { error, transactions } = useSelector((state) => state.transaction);
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    if (!isEmpty(transaction)) {
-      dispatch(fetchTransactions(transactions.meta.current_page));
-      props.handleClose();
-    }
-    return () => {
-      setPayee("");
-      setContributionDate("");
-      setAmount("");
-      setMemo("");
-    };
-  }, [transaction, props, dispatch, transactions]);
 
   const isValid = (data) => {
     const { errors, isValid } = transactionValidator(data);
@@ -53,7 +37,10 @@ function AddContributionForm(props) {
     };
 
     if (isValid(data)) {
-      dispatch(recordTransaction(data));
+      dispatch(recordTransaction(data)).then(() => {
+        dispatch(fetchTransactions(transactions.meta.current_page));
+        props.handleClose();
+      });
     }
   };
 
